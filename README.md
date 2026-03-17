@@ -1,6 +1,27 @@
 [![Build Linux](https://github.com/nasa/cfs/actions/workflows/build-cfs.yml/badge.svg)](https://github.com/nasa/cfs/actions/workflows/build-cfs.yml)
 [![Build RTEMS 5](https://github.com/nasa/cFS/actions/workflows/build-cfs-rtems5.yml/badge.svg)](https://github.com/nasa/cFS/actions/workflows/build-cfs-rtems5.yml)
 
+# Forked cFS - Data Recorder 'Mission'
+
+This is a fork of the NASA cFS (core Flight System) with an added app.
+
+## What's Added
+
+**Data Recorder App** (`apps/data_recorder/`) - Records sensor data to files
+
+## Hardware Setup
+
+- Raspberry Pi 5 as flight computer
+- Photoresistor sensor (reads light levels. Used just to generate numeric data, specifically analog.)
+- USB-Serial for sending data pi (fc) <-> laptop (ground station)
+- Data Recorder will take in sensor data and log it to files. 
+    - one file for auto logging every minute or something.
+    - another for logging each time a button is pressed.
+
+## Furture Goals
+- Add another app that is the Data Recorder but rewritten in Rust for 'memory safety'
+- More sensors
+
 # Core Flight System - BUNDLE
 
 The Core Flight System (cFS) is a generic flight software architecture framework used on flagship spacecraft, human spacecraft, cubesats, and Raspberry Pi.  This repository is a bundle of submodules that make up the cFS framework.  Note the "lab" apps are intended as examples only, and enable this bundle to build, execute, receive commands, and send telemetry.  This is not a flight distribution, which is typically made up of the cFE, OSAL, PSP, and a selection of flight apps that correspond to specific mission requirements.
